@@ -4,7 +4,7 @@
   <nz-form-item>
     <nz-form-control [nzErrorTip]="mailErrorTip">
       <nz-input-group nzSize="large" nzAddonBeforeIcon="user">
-        <input nz-input formControlName="mail" placeholder="Email" />
+        <input nz-input formControlName="mail" placeholder="邮箱" />
       </nz-input-group>
       <ng-template #mailErrorTip let-i>
         <ng-container *ngIf="i.errors?.required">{{ 'validation.email.required' | translate }}</ng-container>
@@ -14,18 +14,10 @@
   </nz-form-item>
   <nz-form-item>
     <nz-form-control [nzErrorTip]="'validation.password.required' | translate">
-      <nz-input-group
-        nzSize="large"
-        nzAddonBeforeIcon="lock"
-        nz-popover
-        nzPopoverPlacement="right"
-        nzPopoverTrigger="focus"
-        [(nzVisible)]="visible"
-        nzOverlayClassName="register-password-cdk"
-        [nzOverlayStyle]="{ 'width.px': 240 }"
-        [nzPopoverContent]="pwdCdkTpl"
-      >
-        <input nz-input type="password" formControlName="password" placeholder="Password" />
+      <nz-input-group nzSize="large" nzAddonBeforeIcon="lock" nz-popover nzPopoverPlacement="right"
+        nzPopoverTrigger="focus" [(nzVisible)]="visible" nzOverlayClassName="register-password-cdk"
+        [nzOverlayStyle]="{ 'width.px': 240 }" [nzPopoverContent]="pwdCdkTpl">
+        <input nz-input type="password" formControlName="password" placeholder="密码" />
       </nz-input-group>
       <ng-template #pwdCdkTpl>
         <div style="padding: 4px 0;">
@@ -35,12 +27,8 @@
             <div *ngSwitchDefault class="error">{{ 'validation.password.strength.short' | translate }}</div>
           </ng-container>
           <div class="progress-{{ status }}">
-            <nz-progress
-              [nzPercent]="progress"
-              [nzStatus]="passwordProgressMap[status]"
-              [nzStrokeWidth]="6"
-              [nzShowInfo]="false"
-            ></nz-progress>
+            <nz-progress [nzPercent]="progress" [nzStatus]="passwordProgressMap[status]" [nzStrokeWidth]="6"
+              [nzShowInfo]="false"></nz-progress>
           </div>
           <p class="mt-sm">{{ 'validation.password.strength.msg' | translate }}</p>
         </div>
@@ -50,7 +38,7 @@
   <nz-form-item>
     <nz-form-control [nzErrorTip]="confirmErrorTip">
       <nz-input-group nzSize="large" nzAddonBeforeIcon="lock">
-        <input nz-input type="password" formControlName="confirm" placeholder="Confirm Password" />
+        <input nz-input type="password" formControlName="confirm" placeholder="确认密码" />
       </nz-input-group>
       <ng-template #confirmErrorTip let-i>
         <ng-container *ngIf="i.errors?.required">{{ 'validation.confirm-password.required' | translate }}</ng-container>
@@ -67,7 +55,7 @@
             <nz-option [nzLabel]="'+87'" [nzValue]="'+87'"></nz-option>
           </nz-select>
         </ng-template>
-        <input formControlName="mobile" nz-input placeholder="Phone number" />
+        <input formControlName="mobile" nz-input placeholder="手机号码" />
       </nz-input-group>
       <ng-template #mobileErrorTip let-i>
         <ng-container *ngIf="i.errors?.required">{{ 'validation.phone-number.required' | translate }}</ng-container>
@@ -80,19 +68,12 @@
       <nz-row [nzGutter]="8">
         <nz-col [nzSpan]="16">
           <nz-input-group nzSize="large" nzAddonBeforeIcon="mail">
-            <input nz-input formControlName="captcha" placeholder="Captcha" />
+            <input nz-input formControlName="captcha" placeholder="验证码" />
           </nz-input-group>
         </nz-col>
         <nz-col [nzSpan]="8">
-          <button
-            type="button"
-            nz-button
-            nzSize="large"
-            (click)="getCaptcha()"
-            [disabled]="count"
-            nzBlock
-            [nzLoading]="http.loading"
-          >
+          <button type="button" nz-button nzSize="large" (click)="getCaptcha()" [disabled]="count" nzBlock
+            [nzLoading]="http.loading">
             {{ count ? count + 's' : ('app.register.get-verification-code' | translate) }}
           </button>
         </nz-col>
@@ -100,9 +81,11 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
+    <nz-col [nzSpan]="12">
+      <a class="login" routerLink="/passport/login">{{ 'app.register.sign-in' | translate }}</a>
+    </nz-col>
     <button nz-button nzType="primary" nzSize="large" type="submit" [nzLoading]="http.loading" class="submit">
       {{ 'app.register.register' | translate }}
     </button>
-    <a class="login" routerLink="/passport/login">{{ 'app.register.sign-in' | translate }}</a>
   </nz-form-item>
 </form>
