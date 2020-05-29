@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-alain": {
+    "ihuangxiaomin": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
@@ -77,15 +77,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-alain:build",
+            "browserTarget": "ihuangxiaomin:build",
             "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-alain:build:production"
+              "browserTarget": "ihuangxiaomin:build:production"
             },
             "hmr": {
-              "browserTarget": "ng-alain:build:hmr",
+              "browserTarget": "ihuangxiaomin:build:hmr",
               "hmr": true
             }
           }
@@ -93,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-alain:build"
+            "browserTarget": "ihuangxiaomin:build"
           }
         },
         "test": {
@@ -131,16 +131,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng-alain:serve"
+            "devServerTarget": "ihuangxiaomin:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ng-alain:serve:production"
+              "devServerTarget": "ihuangxiaomin:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ng-alain"
+  "defaultProject": "ihuangxiaomin"
 }

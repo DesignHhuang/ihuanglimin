@@ -1,4 +1,4 @@
-name: ng-alain
+name: ihuangxiaomin
 
 trigger:
   - master
@@ -31,7 +31,7 @@ stages:
             inputs:
               command: 'install'
           - script: |
-              node ./scripts/_azure/github-comment.js "RELEASE" "[Using release @delon, Preview Preparing...](https://dev.azure.com/ng-alain/ng-alain/_build/results?buildId=$(Build.BuildId))"
+              node ./scripts/_azure/github-comment.js "RELEASE" "[Using release @delon, Preview Preparing...](https://dev.azure.com/ihuangxiaomin/ihuangxiaomin/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Comment on github'
             env:
               ACCESS_REPO: $(ACCESS_REPO)
@@ -41,7 +41,7 @@ stages:
           - script: ls -al dist/
             displayName: 'List build'
           - script: |
-              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ng-alain.surge.sh
+              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ihuangxiaomin.surge.sh
               echo "Deploy to $DEPLOY_DOMAIN"
               cp ./dist/index.html ./dist/404.html
               npx surge --project ./dist --domain $DEPLOY_DOMAIN
@@ -52,7 +52,7 @@ stages:
               SURGE_LOGIN: $(SURGE_LOGIN)
               SURGE_TOKEN: $(SURGE_TOKEN)
           - script: |
-              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ng-alain.surge.sh
+              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ihuangxiaomin.surge.sh
               node ./scripts/_azure/github-comment.js "RELEASE" "[Using release @delon, Preview is ready!]($DEPLOY_DOMAIN)"
             displayName: 'Update comment on github'
             env:
@@ -69,7 +69,7 @@ stages:
           - script: npm install
             displayName: 'Install modules'
           - script: |
-              node ./scripts/_azure/github-comment.js "RELEASE" "[Using release @delon, Preview Failed](https://dev.azure.com/ng-alain/delon/_build/results?buildId=$(Build.BuildId))"
+              node ./scripts/_azure/github-comment.js "RELEASE" "[Using release @delon, Preview Failed](https://dev.azure.com/ihuangxiaomin/delon/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Comment on github'
             env:
               ACCESS_REPO: $(ACCESS_REPO)
@@ -84,7 +84,7 @@ stages:
             inputs:
               command: 'install'
           - script: |
-              node ./scripts/_azure/github-comment.js "RELEASE_DAY" "[Using day release @delon, Preview Preparing...](https://dev.azure.com/ng-alain/ng-alain/_build/results?buildId=$(Build.BuildId))"
+              node ./scripts/_azure/github-comment.js "RELEASE_DAY" "[Using day release @delon, Preview Preparing...](https://dev.azure.com/ihuangxiaomin/ihuangxiaomin/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Comment on github'
             env:
               ACCESS_REPO: $(ACCESS_REPO)
@@ -97,7 +97,7 @@ stages:
           - script: ls -al dist/
             displayName: 'List build'
           - script: |
-              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-day-ng-alain.surge.sh
+              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-day-ihuangxiaomin.surge.sh
               echo "Deploy to $DEPLOY_DOMAIN"
               cp ./dist/index.html ./dist/404.html
               npx surge --project ./dist --domain $DEPLOY_DOMAIN
@@ -108,7 +108,7 @@ stages:
               SURGE_LOGIN: $(SURGE_LOGIN)
               SURGE_TOKEN: $(SURGE_TOKEN)
           - script: |
-              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-day-ng-alain.surge.sh
+              export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-day-ihuangxiaomin.surge.sh
               node ./scripts/_azure/github-comment.js "RELEASE_DAY" "[Using day release @delon, Preview is ready!]($DEPLOY_DOMAIN)"
             displayName: 'Update comment on github'
             env:
@@ -125,7 +125,7 @@ stages:
           - script: npm install
             displayName: 'Install modules'
           - script: |
-              node ./scripts/_azure/github-comment.js "RELEASE_DAY" "[Using day release @delon, Preview Failed](https://dev.azure.com/ng-alain/delon/_build/results?buildId=$(Build.BuildId))"
+              node ./scripts/_azure/github-comment.js "RELEASE_DAY" "[Using day release @delon, Preview Failed](https://dev.azure.com/ihuangxiaomin/delon/_build/results?buildId=$(Build.BuildId))"
             displayName: 'Comment on github'
             env:
               ACCESS_REPO: $(ACCESS_REPO)
