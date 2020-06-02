@@ -14,16 +14,12 @@ import { HeaderComponent } from './default/header/header.component';
 import { SidebarComponent } from './default/sidebar/sidebar.component';
 import { LayoutFullScreenComponent } from './fullscreen/fullscreen.component';
 
-import { SettingDrawerItemComponent } from './default/setting-drawer/setting-drawer-item.component';
-import { SettingDrawerComponent } from './default/setting-drawer/setting-drawer.component';
 
-const SETTINGDRAWER = [SettingDrawerComponent, SettingDrawerItemComponent];
 const COMPONENTS = [
   LayoutDefaultComponent,
   LayoutFullScreenComponent,
   HeaderComponent,
   SidebarComponent,
-  ...SETTINGDRAWER,
 ];
 
 const HEADERCOMPONENTS = [
@@ -43,8 +39,7 @@ const PASSPORT = [LayoutPassportComponent];
 
 @NgModule({
   imports: [SharedModule],
-  entryComponents: SETTINGDRAWER,
   declarations: [...COMPONENTS, ...HEADERCOMPONENTS, ...PASSPORT],
   exports: [...COMPONENTS, ...PASSPORT],
 })
-export class LayoutModule {}
+export class LayoutModule { }

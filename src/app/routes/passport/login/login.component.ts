@@ -106,7 +106,7 @@ export class UserLoginComponent implements OnDestroy {
 
     this.authService.login({ mobile: this.userName.value, password: this.password.value }).subscribe(res => {
       if (res.message !== 'OK') {
-        this.error = res.message;
+        this.error = '登录失败，账号或密码错误！';
         return;
       }
       this.reuseTabService.clear();

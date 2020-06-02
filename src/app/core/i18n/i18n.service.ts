@@ -1,4 +1,3 @@
-// 请参考：https://ng-alain.com/docs/i18n
 import { registerLocaleData } from '@angular/common';
 import ngEn from '@angular/common/locales/en';
 import ngZh from '@angular/common/locales/zh';

@@ -3,14 +3,14 @@
     <nz-tab [nzTitle]="'app.login.tab-login-credentials' | translate">
       <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert>
       <nz-form-item>
-        <nz-form-control [nzErrorTip]="'Please enter mobile number!' | translate">
+        <nz-form-control nzErrorTip="请输入手机号码">
           <nz-input-group nzSize="large" nzPrefixIcon="user">
             <input nz-input formControlName="userName" placeholder="请输入用户名" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-control nzErrorTip="'Please enter password!' | translate">
+        <nz-form-control nzErrorTip="请输入密码">
           <nz-input-group nzSize="large" nzPrefixIcon="lock">
             <input nz-input type="password" formControlName="password" placeholder="请输入密码" />
           </nz-input-group>
