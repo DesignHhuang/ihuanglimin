@@ -27,7 +27,7 @@ export class AuthService {
       mobile: data.mobile,
       role_id: '1'
     }).pipe(
-      map(res => res.data)
+      map(res => res['data'])
     );
   }
 }
