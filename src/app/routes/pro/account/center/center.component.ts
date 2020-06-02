@@ -19,7 +19,7 @@ import { filter } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProAccountCenterComponent implements OnInit, OnDestroy {
-  constructor(private router: Router, private http: _HttpClient, private cdr: ChangeDetectorRef) {}
+  constructor(private router: Router, private http: _HttpClient, private cdr: ChangeDetectorRef) { }
   private router$: Subscription;
   user: any;
   notice: any;
@@ -54,11 +54,11 @@ export class ProAccountCenterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    zip(this.http.get('/user/current'), this.http.get('/api/notice')).subscribe(([user, notice]) => {
-      this.user = user;
-      this.notice = notice;
-      this.cdr.detectChanges();
-    });
+    // zip(this.http.get('/user/current'), this.http.get('/api/notice')).subscribe(([user, notice]) => {
+    //   this.user = user;
+    //   this.notice = notice;
+    //   this.cdr.detectChanges();
+    // });
     this.router$ = this.router.events.pipe(filter((e) => e instanceof ActivationEnd)).subscribe(() => this.setActive());
     this.setActive();
   }

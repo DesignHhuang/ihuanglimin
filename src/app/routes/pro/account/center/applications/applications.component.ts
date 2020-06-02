@@ -11,14 +11,14 @@ export class ProAccountCenterApplicationsComponent {
   listLoading = true;
   list: any[] = [];
   constructor(private http: _HttpClient, private cdr: ChangeDetectorRef) {
-    this.http.get('/api/list', { count: 8 }).subscribe((res: any) => {
-      this.list = res.map((item) => {
-        item.activeUser = this.formatWan(item.activeUser);
-        return item;
-      });
-      this.listLoading = false;
-      this.cdr.detectChanges();
-    });
+    // this.http.get('/api/list', { count: 8 }).subscribe((res: any) => {
+    //   this.list = res.map((item) => {
+    //     item.activeUser = this.formatWan(item.activeUser);
+    //     return item;
+    //   });
+    //   this.listLoading = false;
+    //   this.cdr.detectChanges();
+    // });
   }
 
   private formatWan(val) {

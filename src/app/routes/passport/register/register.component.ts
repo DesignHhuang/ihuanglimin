@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { _HttpClient } from '@delon/theme';
+import { AuthService } from '@services';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
@@ -10,18 +11,16 @@ import { NzMessageService } from 'ng-zorro-antd/message';
   styleUrls: ['./register.component.less'],
 })
 export class UserRegisterComponent implements OnDestroy {
-  constructor(fb: FormBuilder, private router: Router, public http: _HttpClient, public msg: NzMessageService) {
+  constructor(fb: FormBuilder, private router: Router, public http: _HttpClient, public msg: NzMessageService, private authService: AuthService, ) {
     this.form = fb.group({
-      mail: [null, [Validators.required, Validators.email]],
+      email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6), UserRegisterComponent.checkPassword.bind(this)]],
       confirm: [null, [Validators.required, Validators.minLength(6), UserRegisterComponent.passwordEquar]],
       mobilePrefix: ['+86'],
       mobile: [null, [Validators.required, Validators.pattern(/^1\d{10}$/)]],
-      captcha: [null, [Validators.required]],
+      captcha: [111111, [Validators.required]],
     });
   }
-
-  // #region fields
 
   get mail() {
     return this.form.controls.mail;
@@ -49,10 +48,6 @@ export class UserRegisterComponent implements OnDestroy {
     pass: 'normal',
     pool: 'exception',
   };
-
-  // #endregion
-
-  // #region get captcha
 
   count = 0;
   interval$: any;
@@ -101,8 +96,6 @@ export class UserRegisterComponent implements OnDestroy {
     }, 1000);
   }
 
-  // #endregion
-
   submit() {
     this.error = '';
     Object.keys(this.form.controls).forEach((key) => {
@@ -114,10 +107,14 @@ export class UserRegisterComponent implements OnDestroy {
     }
 
     const data = this.form.value;
-    this.http.post('/register', data).subscribe(() => {
-      this.router.navigateByUrl('/passport/register-result', {
-        queryParams: { email: data.mail },
-      });
+    this.authService.register(data).subscribe(res => {
+      if (res.success === 1) {
+        this.router.navigate(['/passport/register-result'], {
+          queryParams: { email: res.user.email },
+        });
+      } else {
+        this.error = res.message;
+      }
     });
   }
 

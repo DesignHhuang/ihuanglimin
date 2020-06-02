@@ -15,14 +15,19 @@ export class AuthService {
   // 登录    
   login(data): Observable<any> {
     const uri = `${this.config.getConfig('uri')}/${this.domain}/login`;
-    const headers = this.tokenService.get().headers;
-    return this.http.post(uri, data, { headers });
+    return this.http.post(uri, data);
   }
 
   // 注册      
   register(data): Observable<any> {
     const uri = `${this.config.getConfig('uri')}/${this.domain}/register`;
-    const headers = this.tokenService.get().headers;
-    return this.http.post(uri, data, { headers });
+    return this.http.post(uri, {
+      email: data.email,
+      password: data.password,
+      mobile: data.mobile,
+      role_id: '1'
+    }).pipe(
+      map(res => res.data)
+    );
   }
 }
