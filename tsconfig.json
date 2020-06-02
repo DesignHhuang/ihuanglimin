@@ -16,9 +16,18 @@
       "dom"
     ],
     "paths": {
-      "@shared": [ "src/app/shared/index" ],
-      "@core": [ "src/app/core/index" ],
-      "@env/*": [ "src/environments/*" ]
+      "@shared": [
+        "src/app/shared/index"
+      ],
+      "@core": [
+        "src/app/core/index"
+      ],
+      "@services": [
+        "src/app/services/index"
+      ],
+      "@env/*": [
+        "src/environments/*"
+      ]
     }
   },
   "angularCompilerOptions": {

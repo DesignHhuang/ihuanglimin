@@ -29,6 +29,11 @@ export class StartupService {
     iconSrv.addIcon(...ICONS_AUTO, ...ICONS);
   }
 
+  private config = null;
+  public getConfig(key: any) {
+    return this.config[key];
+  }
+
   load(): Promise<any> {
     // only works with promises
     // https://github.com/angular/angular/issues/15088
@@ -52,6 +57,7 @@ export class StartupService {
             const res: any = appData;
             // 应用信息：包括站点名、描述、年份
             this.settingService.setApp(res.app);
+            this.config = res.api;
             // 用户信息：包括姓名、头像、邮箱地址
             this.settingService.setUser(res.user);
             // ACL：设置权限为全量
@@ -62,7 +68,7 @@ export class StartupService {
             this.titleService.default = '';
             this.titleService.suffix = res.app.name;
           },
-          () => {},
+          () => { },
           () => {
             resolve(null);
           },

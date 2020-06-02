@@ -1,13 +1,18 @@
 {
   "app": {
-    "name": "Alain",
-    "description": "Ng-zorro admin panel front-end framework"
+    "name": "ihuanglimin",
+    "description": "huanglimin nothing to say"
   },
   "user": {
-    "name": "Admin",
+    "name": "huanglimin",
     "avatar": "./assets/tmp/img/avatar.jpg",
-    "email": "cipchk@qq.com"
+    "email": "1219549841@qq.com"
   },
+  "api": {
+    "romoteuri": "http://localhost:8081/api/v1",
+    "uri": "http://localhost:8081/api",
+    "tilesUri": "http://localhost:8081/"
+},
   "menu": [
     {
       "text": "主导航",

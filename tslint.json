@@ -4,8 +4,7 @@
     "tslint-config-prettier"
   ],
   "rulesDirectory": [
-    "codelyzer",
-    "ng-alain-codelyzer"
+    "codelyzer"
   ],
   "rules": {
     "align": {

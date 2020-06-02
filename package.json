@@ -110,9 +110,7 @@
     "webpack-bundle-analyzer": "^3.6.1",
     "antd-theme-generator": "^1.1.9",
     "xlsx": "^0.15.6",
-    "@delon/testing": "^9.2.4",
-    "ng-alain": "^9.2.4",
-    "ng-alain-codelyzer": "^0.0.1"
+    "@delon/testing": "^9.2.4"
   },
   "husky": {
     "hooks": {
