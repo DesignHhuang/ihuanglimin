@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { AuthService } from './auth.service';
+import { UserService } from './user.service'
 
 export {
-  AuthService
+  AuthService,
+  UserService
 };
 
 @NgModule()
@@ -11,7 +13,8 @@ export class ServicesModule {
     return {
       ngModule: ServicesModule,
       providers: [
-        AuthService
+        AuthService,
+        UserService
       ]
     };
   }

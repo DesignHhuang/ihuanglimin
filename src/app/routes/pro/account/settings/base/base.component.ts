@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
-import { NzMessageService } from 'ng-zorro-antd/message';
-import { zip } from 'rxjs';
+import { UploadFile, NzMessageService } from 'ng-zorro-antd';
+import { UserService } from '@services'
+import { User } from '@domain'
+import { StartupService } from '@core';
 
 @Component({
   selector: 'app-account-settings-base',
@@ -10,40 +12,38 @@ import { zip } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProAccountSettingsBaseComponent implements OnInit {
-  constructor(private http: _HttpClient, private cdr: ChangeDetectorRef, private msg: NzMessageService) {}
   avatar = '';
   userLoading = true;
-  user: any;
+  actionUrl: string;
+  user: User;
 
-  // #region geo
-
-  provinces: any[] = [];
-  cities: any[] = [];
+  constructor(private config: StartupService, private http: _HttpClient, private cdr: ChangeDetectorRef, private userService: UserService, private msg: NzMessageService) {
+    this.actionUrl = `${this.config.getConfig('uri')}/user/uploadImage`;
+  }
 
   ngOnInit(): void {
-    zip(this.http.get('/user/current'), this.http.get('/geo/province')).subscribe(([user, province]: any) => {
+    this.userService.currentUser().subscribe(res => {
       this.userLoading = false;
-      this.user = user;
-      this.provinces = province;
-      this.choProvince(user.geographic.province.key, false);
+      this.user = res;
+      this.avatar = this.config.getConfig('fastdfsuri') + this.user.avatar;
       this.cdr.detectChanges();
-    });
+    })
   }
 
-  choProvince(pid: string, cleanCity = true) {
-    this.http.get(`/geo/${pid}`).subscribe((res: any) => {
-      this.cities = res;
-      if (cleanCity) {
-        this.user.geographic.city.key = '';
-      }
-      this.cdr.detectChanges();
-    });
+  beforeUpload = (file: UploadFile): boolean => {
+    if (!(file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/bmp')) {
+      this.msg.warning('只能上传jpg、bmp、png格式的图片');
+      return false;
+    } else {
+      return true;
+    }
   }
-
-  // #endregion
 
   save() {
-    this.msg.success(JSON.stringify(this.user));
-    return false;
+    this.userService.update(this.user).subscribe(res => {
+      this.user = res;
+      this.avatar = this.config.getConfig('fastdfsuri') + this.user.avatar;
+      this.cdr.detectChanges();
+    })
   }
 }

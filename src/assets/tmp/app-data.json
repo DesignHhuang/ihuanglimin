@@ -9,6 +9,7 @@
     "email": "1219549841@qq.com"
   },
   "api": {
+    "fastdfsuri": "http://192.168.191.128:9002/",
     "romoteuri": "http://localhost:8081/api/v1",
     "uri": "http://localhost:8081/api",
     "tilesUri": "http://localhost:8081/"

@@ -25,6 +25,9 @@
       "@services": [
         "src/app/services/index"
       ],
+      "@domain": [
+        "src/app/domain/index"
+      ],
       "@env/*": [
         "src/environments/*"
       ]
