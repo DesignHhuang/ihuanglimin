@@ -10,6 +10,7 @@ export interface User {
   title?: string;
   org_group?: string;
   tagList?: Tag[];
+  teamList?: Team[];
   country?: string;
   address?: string;
   profile?: string;
@@ -32,3 +33,14 @@ export interface Role {
   createdAt?: Date;
 }
 
+export interface Team {
+  id: number;
+  title?: string;
+  logo?: string;
+  description?: string;
+  member?: string;
+  href?: string;
+  memberLink?: string;
+  createdAt?: Date;
+  updateAt?: Date;
+}

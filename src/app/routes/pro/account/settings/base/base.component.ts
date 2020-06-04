@@ -21,7 +21,6 @@ export class ProAccountSettingsBaseComponent implements OnInit {
 
   constructor(private config: StartupService, private http: _HttpClient, private cdr: ChangeDetectorRef, private userService: UserService, private msg: NzMessageService) {
     this.actionUrl = `${this.config.getConfig('uri')}/user/uploadImage`;
-    console.log(this.actionUrl)
   }
 
   ngOnInit(): void {

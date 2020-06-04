@@ -11,6 +11,15 @@
         <se label="真实姓名" error="请输入您的真实姓名!">
           <input nz-input [(ngModel)]="user.fullname" name="fullname" />
         </se>
+        <se label="个性签名" error="请输入您的个性签名!">
+          <input nz-input [(ngModel)]="user.signature" name="signature" required />
+        </se>
+        <se label="职位" error="请输入您的职位!">
+          <input nz-input [(ngModel)]="user.title" name="title" required />
+        </se>
+        <se label="组织" error="请输入您的组织!">
+          <input nz-input [(ngModel)]="user.org_group" name="org_group" required />
+        </se>
         <se label="个人简介">
           <textarea nz-input [(ngModel)]="user.profile" name="profile" [nzAutosize]="{ minRows: 4, maxRows: 10 }"
             placeholder="个人简介"></textarea>

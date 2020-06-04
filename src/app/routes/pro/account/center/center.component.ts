@@ -11,6 +11,8 @@ import { ActivationEnd, Router } from '@angular/router';
 import { _HttpClient } from '@delon/theme';
 import { Subscription, zip } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { UserService } from '@services';
+import { StartupService } from '@core';
 
 @Component({
   selector: 'app-account-center',
@@ -19,22 +21,21 @@ import { filter } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProAccountCenterComponent implements OnInit, OnDestroy {
-  constructor(private router: Router, private http: _HttpClient, private cdr: ChangeDetectorRef) { }
+  constructor(private router: Router, private userService: UserService, private config: StartupService, private cdr: ChangeDetectorRef) { }
   private router$: Subscription;
   user: any;
-  notice: any;
   tabs: any[] = [
     {
       key: 'articles',
-      tab: '文章 (8)',
+      tab: '文章',
     },
     {
       key: 'applications',
-      tab: '应用 (8)',
+      tab: '应用',
     },
     {
       key: 'projects',
-      tab: '项目 (8)',
+      tab: '项目',
     },
   ];
 
@@ -54,11 +55,10 @@ export class ProAccountCenterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // zip(this.http.get('/user/current'), this.http.get('/api/notice')).subscribe(([user, notice]) => {
-    //   this.user = user;
-    //   this.notice = notice;
-    //   this.cdr.detectChanges();
-    // });
+    this.userService.currentUser().subscribe(res => {
+      this.user = res;
+      this.cdr.detectChanges();
+    })
     this.router$ = this.router.events.pipe(filter((e) => e instanceof ActivationEnd)).subscribe(() => this.setActive());
     this.setActive();
   }
@@ -74,8 +74,8 @@ export class ProAccountCenterComponent implements OnInit, OnDestroy {
 
   tagBlur() {
     const { user, cdr, tagValue } = this;
-    if (tagValue && user.tags.filter((tag) => tag.label === tagValue).length === 0) {
-      user.tags.push({ label: tagValue });
+    if (tagValue && user.tagList.filter((tag) => tag.tagname === tagValue).length === 0) {
+      user.tagList.push({ tagname: tagValue });
     }
     this.tagValue = '';
     this.taging = false;
