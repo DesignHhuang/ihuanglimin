@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 import { SettingsService } from '@delon/theme';
+import { StartupService } from '@core';
 
 @Component({
   selector: 'header-user',
@@ -12,8 +13,8 @@ import { SettingsService } from '@delon/theme';
       nzPlacement="bottomRight"
       [nzDropdownMenu]="userMenu"
     >
-      <nz-avatar [nzSrc]="settings.user.avatar" nzSize="small" class="mr-sm"></nz-avatar>
-      {{ settings.user.name }}
+      <nz-avatar [nzSrc]="config.getConfig('fastdfsuri') + settings.user.avatar" nzSize="small" class="mr-sm"></nz-avatar>
+      {{ settings.user.nickname ? settings.user.nickname : '匿名用户' }}
     </div>
     <nz-dropdown-menu #userMenu="nzDropdownMenu">
       <div nz-menu class="width-sm">
@@ -41,10 +42,10 @@ import { SettingsService } from '@delon/theme';
 })
 export class HeaderUserComponent {
   constructor(
-    public settings: SettingsService,
+    public settings: SettingsService, public config: StartupService,
     private router: Router,
     @Inject(DA_SERVICE_TOKEN) private tokenService: ITokenService,
-  ) {}
+  ) { }
 
   logout() {
     this.tokenService.clear();

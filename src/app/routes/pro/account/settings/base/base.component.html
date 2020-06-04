@@ -32,10 +32,11 @@
       </form>
     </div>
     <div class="right">
-      <div class="avatar_title">Avatar</div>
-      <div class="avatar"><img src="{{ avatar }}" alt="Avatar" /></div>
-      <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
-        <button nz-button class="button_view">
+      <div class="avatar_title">头像</div>
+      <div class="avatar"><img [src]="avatar" alt="Avatar" /></div>
+      <nz-upload [nzAction]="actionUrl" [nzBeforeUpload]="beforeUpload" (nzChange)="handleChange($event)"
+        [nzShowUploadList]="false">
+        <button nz-button class="button_view" [nzLoading]="loading">
           <i nz-icon nzType="upload"></i>
           <span>更换头像</span>
         </button>

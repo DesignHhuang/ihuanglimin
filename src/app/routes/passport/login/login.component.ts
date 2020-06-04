@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StartupService } from '@core';
 import { ReuseTabService } from '@delon/abc/reuse-tab';
-import { DA_SERVICE_TOKEN, ITokenService, SocialOpenType, SocialService } from '@delon/auth';
+import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 import { SettingsService, _HttpClient } from '@delon/theme';
 import { AuthService } from '@services';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -13,7 +13,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
   selector: 'passport-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less'],
-  providers: [SocialService],
+  providers: [],
 })
 export class UserLoginComponent implements OnDestroy {
   constructor(
@@ -21,7 +21,6 @@ export class UserLoginComponent implements OnDestroy {
     modalSrv: NzModalService,
     private router: Router,
     private settingsService: SettingsService,
-    private socialService: SocialService,
     private authService: AuthService,
     @Optional()
     @Inject(ReuseTabService)
@@ -41,8 +40,6 @@ export class UserLoginComponent implements OnDestroy {
     modalSrv.closeAll();
   }
 
-  // #region fields
-
   get userName() {
     return this.form.controls.userName;
   }
@@ -58,11 +55,8 @@ export class UserLoginComponent implements OnDestroy {
   form: FormGroup;
   error = '';
   type = 0;
-
-
   count = 0;
   interval$: any;
-
 
   switch(ret: any) {
     this.type = ret.index;
@@ -82,7 +76,6 @@ export class UserLoginComponent implements OnDestroy {
       }
     }, 1000);
   }
-
 
   submit() {
     this.error = '';
@@ -111,6 +104,7 @@ export class UserLoginComponent implements OnDestroy {
       }
       this.reuseTabService.clear();
       this.tokenService.set({ token: res.data.token });
+      this.settingsService.setUser(res.data.user);
       this.startupSrv.load().then(() => {
         let url = this.tokenService.referrer.url || '/';
         if (url.includes('/passport')) {

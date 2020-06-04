@@ -34,6 +34,20 @@ export class UserService {
     }));
   }
 
+  //更新头像
+  updateAvatar(id, newurl, oldurl): Observable<User> {
+    const uri = `${this.config.getConfig('uri')}/${this.domain}/updateAvatar`;
+    return this.http.post(uri, { 'id': id, 'newurl': newurl, 'oldurl': oldurl }).pipe(map(res => {
+      if (res['code'] === 1) {
+        this.msg.success("头像修改成功")
+        return res['data'];
+      } else {
+        this.msg.success("头像修改失败")
+        return res['data'];
+      }
+    }));
+  }
+
   // 注册      
   // register(data): Observable<any> {
   //   const uri = `${this.config.getConfig('uri')}/${this.domain}/register`;
