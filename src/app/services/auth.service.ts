@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { StartupService } from '@core';
-import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   private readonly domain = 'auth';
 
-  constructor(private config: StartupService, private http: HttpClient, @Inject(DA_SERVICE_TOKEN) private tokenService: ITokenService) {
+  constructor(private config: StartupService, private http: HttpClient) {
   }
 
   // 登录    

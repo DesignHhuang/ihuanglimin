@@ -14,6 +14,7 @@ import { filter } from 'rxjs/operators';
 import { UserService } from '@services';
 import { StartupService } from '@core';
 
+
 @Component({
   selector: 'app-account-center',
   templateUrl: './center.component.html',
@@ -27,15 +28,15 @@ export class ProAccountCenterComponent implements OnInit, OnDestroy {
   tabs: any[] = [
     {
       key: 'articles',
-      tab: '文字',
+      tab: '记录文字',
     },
     {
       key: 'applications',
-      tab: '应用',
+      tab: '记录图片',
     },
     {
       key: 'projects',
-      tab: '项目',
+      tab: '记录图文',
     },
   ];
 

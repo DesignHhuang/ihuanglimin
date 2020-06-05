@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { ArticleService } from '@services';
 
 @Component({
   selector: 'app-basic-form',
@@ -11,28 +11,24 @@ export class BasicFormComponent implements OnInit {
   form: FormGroup;
   submitting = false;
 
-  constructor(private fb: FormBuilder, private msg: NzMessageService, private cdr: ChangeDetectorRef) {}
+  constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef, private articleService: ArticleService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      title: [null, [Validators.required]],
-      date: [null, [Validators.required]],
-      goal: [null, [Validators.required]],
-      standard: [null, [Validators.required]],
-      client: [null, []],
-      invites: [null, []],
-      weight: [null, []],
-      public: [1, [Validators.min(1), Validators.max(3)]],
-      publicUsers: [null, []],
+      content: [null, [Validators.required]],
     });
   }
 
-  submit() {
+  submit = ($event, value) => {
     this.submitting = true;
-    setTimeout(() => {
+    $event.preventDefault();
+    for (const key in this.form.controls) {
+      this.form.controls[key].markAsDirty();
+    }
+    this.articleService.create(value).subscribe(res => {
       this.submitting = false;
-      this.msg.success(`提交成功`);
+      console.log(res)
       this.cdr.detectChanges();
-    }, 1000);
+    })
   }
 }

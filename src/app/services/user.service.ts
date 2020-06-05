@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { StartupService } from '@core';
-import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '@domain'
@@ -11,7 +10,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 export class UserService {
   private readonly domain = 'user';
 
-  constructor(private config: StartupService, private http: HttpClient, @Inject(DA_SERVICE_TOKEN) private tokenService: ITokenService, private msg: NzMessageService) {
+  constructor(private config: StartupService, private http: HttpClient, private msg: NzMessageService) {
   }
 
   // 获取当前用户   

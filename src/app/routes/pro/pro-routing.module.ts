@@ -29,6 +29,7 @@ const routes: Routes = [
   {
     path: 'form',
     children: [
+      { path: '', redirectTo: 'basic-form', pathMatch: 'full' },
       { path: 'basic-form', component: BasicFormComponent },
       { path: 'step-form', component: StepFormComponent },
       { path: 'advanced-form', component: AdvancedFormComponent },

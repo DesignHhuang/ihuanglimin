@@ -1,17 +1,83 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
+import { ArticleService } from '@services';
+import { StartupService } from '@core'
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Article } from '@domain';
 
 @Component({
   selector: 'app-account-center-articles',
   templateUrl: './articles.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [
+    `
+      .demo-loadmore-list {
+        min-height: 350px;
+      }
+      .loadmore {
+        text-align: center;
+        margin-top: 12px;
+        height: 32px;
+        line-height: 32px;
+      }
+    `
+  ]
 })
-export class ProAccountCenterArticlesComponent {
+export class ProAccountCenterArticlesComponent implements OnInit {
   list: any[];
-  constructor(private http: _HttpClient, private cdr: ChangeDetectorRef) {
-    // this.http.get('/api/list', { count: 8 }).subscribe((res: any) => {
-    //   this.list = res;
-    //   this.cdr.detectChanges();
+  loadingMore = false;
+  form: FormGroup;
+  submitting = false;
+
+  constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef, private articleService: ArticleService, private config: StartupService, private msg: NzMessageService) {
+    this.getData()
+  }
+
+  getData = () => {
+    this.articleService.allArticlesByUser({ index: 1 }).subscribe(res => {
+      this.list = res;
+      this.cdr.detectChanges();
+    })
+  }
+
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      content: [null, [Validators.required]],
+    });
+  }
+
+  edit(item: any): void {
+    this.msg.success("触发事件");
+  }
+
+  submit = ($event, value) => {
+    $event.preventDefault();
+    for (const key in this.form.controls) {
+      this.form.controls[key].markAsDirty();
+    }
+    this.articleService.create(value).subscribe(res => {
+      this.form.reset();
+      this.getData()
+      this.cdr.detectChanges();
+    })
+  }
+
+  delete = (item: Article) => {
+    this.articleService.delete(item).subscribe(res => {
+      console.log(res)
+      this.getData()
+      this.cdr.detectChanges();
+    })
+  }
+
+  onLoadMore(): void {
+    this.loadingMore = true;
+    // this.list = this.data.concat([...Array(count)].fill({}).map(() => ({ loading: true, name: {} })));
+    // this.http.get(fakeDataUrl).subscribe((res: any) => {
+    //   this.data = this.data.concat(res.results);
+    //   this.list = [...this.data];
+    //   this.loadingMore = false;
     // });
   }
 }

@@ -57,8 +57,7 @@
           "children": [
             {
               "text": "写东西",
-              "link": "/pro/form/basic-form",
-              "shortcut": true
+              "link": "/pro/form/basic-form"
             },
             {
               "text": "Step Form",
@@ -80,8 +79,7 @@
             {
               "text": "Table List",
               "link": "/pro/list/table-list",
-              "i18n": "menu.list.searchtable",
-              "shortcut": true
+              "i18n": "menu.list.searchtable"
             },
             {
               "text": "Basic List",
@@ -103,8 +101,7 @@
                 },
                 {
                   "link": "/pro/list/projects",
-                  "i18n": "menu.list.searchlist.projects",
-                  "shortcut": true
+                  "i18n": "menu.list.searchlist.projects"
                 },
                 {
                   "link": "/pro/list/applications",
@@ -127,8 +124,7 @@
             {
               "text": "Advanced",
               "link": "/pro/profile/advanced",
-              "i18n": "menu.profile.advanced",
-              "shortcut": true
+              "i18n": "menu.profile.advanced"
             }
           ]
         },

@@ -1,13 +1,35 @@
-<nz-list nzItemLayout="vertical" [nzLoading]="!list">
-  <nz-list-item *ngFor="let item of list" [nzContent]="nzContent" [nzActions]="[op1, op2, op3]">
-    <ng-template #op1> <i nz-icon nzType="like" class="mr-sm"></i>{{ item.like }}</ng-template>
-    <ng-template #op2> <i nz-icon nzType="message" class="mr-sm"></i>{{ item.message }}</ng-template>
-    <ng-template #nzContent>
-      <p>{{ item.content }}</p>
-      <div class="mt-md d-flex">
-        <a href="{{ item.href }}" target="_blank">{{ item.owner }}</a>
-        <time class="pl-md text-grey" title="{{ item.updatedAt }}">{{ item.updatedAt | _date }}</time>
-      </div>
-    </ng-template>
+<nz-card [nzBordered]="false">
+  <form nz-form [formGroup]="form" (ngSubmit)="submit($event,form.value)" se-container="1" labelWidth="200">
+    <se label="记录什么呢" error="请输入内容" required>
+      <textarea nz-input formControlName="content" [nzAutosize]="{ minRows: 6 }"
+        placeholder="想想有咩有什么好玩的事情哇，有没有遇到好的句子啊什么的"></textarea>
+    </se>
+    <se>
+      <button nz-button nzType="primary" [disabled]="form.invalid" type="submit" [nzLoading]="submitting">提交</button>
+    </se>
+  </form>
+</nz-card>
+<nz-list class="demo-loadmore-list">
+  <nz-list-item *ngFor="let item of list">
+    <ng-container>
+      <nz-list-item-meta [nzAvatar]="config.getConfig('fastdfsuri') + item.creator.avatar"
+        [nzDescription]="item.content">
+        <nz-list-item-meta-title>
+          发布者：<a href="https://ng.ant.design">{{ item.creator.nickname }}</a>
+        </nz-list-item-meta-title>
+      </nz-list-item-meta>
+      {{ item.createdAt | _date }}
+      <ul nz-list-item-actions>
+        <nz-list-item-action><a (click)="edit(item)"><i nz-icon nzType="like" class="mr-sm"></i></a>{{ item.likesum }}
+        </nz-list-item-action>
+        <nz-list-item-action><a (click)="edit(item)"><i nz-icon nzType="message"
+              class="mr-sm"></i></a>{{ item.commentsum }}
+        </nz-list-item-action>
+        <nz-list-item-action><a (click)="delete(item)">删除</a></nz-list-item-action>
+      </ul>
+    </ng-container>
   </nz-list-item>
+  <div class="loadmore" nz-list-load-more>
+    <button nz-button *ngIf="!loadingMore" (click)="onLoadMore()">加载更多</button>
+  </div>
 </nz-list>

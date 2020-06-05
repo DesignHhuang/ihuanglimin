@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { AuthService } from './auth.service';
-import { UserService } from './user.service'
+import { UserService } from './user.service';
+import { ArticleService } from './article.service';
 
 export {
   AuthService,
-  UserService
+  UserService,
+  ArticleService
 };
 
 @NgModule()
@@ -14,7 +16,8 @@ export class ServicesModule {
       ngModule: ServicesModule,
       providers: [
         AuthService,
-        UserService
+        UserService,
+        ArticleService
       ]
     };
   }
