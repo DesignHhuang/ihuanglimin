@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { _HttpClient } from '@delon/theme';
+import { _HttpClient, SettingsService } from '@delon/theme';
 import { UploadFile, NzMessageService } from 'ng-zorro-antd';
 import { UserService } from '@services'
 import { User } from '@domain'
@@ -19,7 +19,7 @@ export class ProAccountSettingsBaseComponent implements OnInit {
   actionUrl: string;
   user: User;
 
-  constructor(private config: StartupService, private http: _HttpClient, private cdr: ChangeDetectorRef, private userService: UserService, private msg: NzMessageService) {
+  constructor(private config: StartupService, private settingsService: SettingsService, private cdr: ChangeDetectorRef, private userService: UserService, private msg: NzMessageService) {
     this.actionUrl = `${this.config.getConfig('uri')}/user/uploadImage`;
   }
 
@@ -27,6 +27,7 @@ export class ProAccountSettingsBaseComponent implements OnInit {
     this.userService.currentUser().subscribe(res => {
       this.userLoading = false;
       this.user = res;
+      this.settingsService.setUser(res);
       this.avatar = this.config.getConfig('fastdfsuri') + this.user.avatar;
       this.cdr.detectChanges();
     })
@@ -59,7 +60,9 @@ export class ProAccountSettingsBaseComponent implements OnInit {
       case 'done':
         this.avatar = this.config.getConfig('fastdfsuri') + info.file.response.data[0].fileurl;
         this.userService.updateAvatar(this.user.id, info.file.response.data[0].fileurl, this.user.avatar).subscribe(res => {
+          this.settingsService.setUser(res);
           this.user = res;
+          this.cdr.detectChanges();
         })
         this.loading = false;
         break;
@@ -73,6 +76,7 @@ export class ProAccountSettingsBaseComponent implements OnInit {
   save() {
     this.userService.update(this.user).subscribe(res => {
       this.user = res;
+      this.settingsService.setUser(this.user);
       this.avatar = this.config.getConfig('fastdfsuri') + this.user.avatar;
       this.cdr.detectChanges();
     })

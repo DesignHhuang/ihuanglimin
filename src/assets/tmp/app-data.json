@@ -1,12 +1,7 @@
 {
   "app": {
-    "name": "四十大盗",
-    "description": "huanglimin nothing to say"
-  },
-  "user": {
-    "name": "huanglimin",
-    "avatar": "./assets/tmp/img/avatar.jpg",
-    "email": "1219549841@qq.com"
+    "name": "VyimeSa",
+    "description": "huangxiaomin nothing to say"
   },
   "api": {
     "fastdfsuri": "http://192.168.191.128:9002/",

@@ -1,25 +1,9 @@
 {
-  "name": "ng-alain",
+  "name": "vyimesa",
   "version": "9.2.4",
-  "description": "ng-zorro-antd admin panel front-end framework",
-  "author": "cipchk <cipchk@qq.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ng-alain/ng-alain.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ng-alain/ng-alain/issues"
-  },
-  "homepage": "https://ng-alain.com",
+  "description": "nothingtosay",
+  "author": "ihuanglimin@qq.com",
   "license": "MIT",
-  "keywords": [
-    "delon",
-    "antd",
-    "ng-zorro-antd",
-    "angular",
-    "component",
-    "scaffold"
-  ],
   "scripts": {
     "ng": "ng",
     "start": "npm run color-less && ng serve -o",

@@ -76,17 +76,17 @@ const routes: Routes = [
           {
             path: 'articles',
             component: ProAccountCenterArticlesComponent,
-            data: { titleI18n: 'pro-account-center' },
+            data: { titleI18n: '个人中心' },
           },
           {
             path: 'projects',
             component: ProAccountCenterProjectsComponent,
-            data: { titleI18n: 'pro-account-center' },
+            data: { titleI18n: '个人中心' },
           },
           {
             path: 'applications',
             component: ProAccountCenterApplicationsComponent,
-            data: { titleI18n: 'pro-account-center' },
+            data: { titleI18n: '个人中心' },
           },
         ],
       },
@@ -98,22 +98,22 @@ const routes: Routes = [
           {
             path: 'base',
             component: ProAccountSettingsBaseComponent,
-            data: { titleI18n: 'pro-account-settings' },
+            data: { title: '个人设置' },
           },
           {
             path: 'security',
             component: ProAccountSettingsSecurityComponent,
-            data: { titleI18n: 'pro-account-settings' },
+            data: { title: '个人设置' },
           },
           {
             path: 'binding',
             component: ProAccountSettingsBindingComponent,
-            data: { titleI18n: 'pro-account-settings' },
+            data: { title: '个人设置' },
           },
           {
             path: 'notification',
             component: ProAccountSettingsNotificationComponent,
-            data: { titleI18n: 'pro-account-settings' },
+            data: { title: '个人设置' },
           },
         ],
       },
@@ -125,4 +125,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ProRoutingModule {}
+export class ProRoutingModule { }

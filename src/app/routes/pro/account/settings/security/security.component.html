@@ -13,7 +13,7 @@
     </ng-template>
     <nz-list-item-meta nzTitle="密保手机" [nzDescription]="phoneDesc">
       <ng-template #phoneDesc>
-        已绑定手机：159****2231
+        已绑定手机：{{set.user.mobile}}
       </ng-template>
     </nz-list-item-meta>
   </nz-list-item>
@@ -33,7 +33,7 @@
     </ng-template>
     <nz-list-item-meta nzTitle="备用邮箱" [nzDescription]="emailDesc">
       <ng-template #emailDesc>
-        已绑定邮箱：cip*****.com
+        已绑定邮箱：{{set.user.email}}
       </ng-template>
     </nz-list-item-meta>
   </nz-list-item>
