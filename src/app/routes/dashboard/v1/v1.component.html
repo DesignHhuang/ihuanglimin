@@ -1,7 +1,7 @@
 <div class="alain-default__content-title">
   <h1>
     nothingtosay
-    <small>这是一个小小的测试工程</small>
+    <small>记录生活中的点点滴滴</small>
   </h1>
 </div>
 <div nz-row nzGutter="16">
@@ -12,15 +12,8 @@
         <p class="text-nowrap mb0">发表总数</p>
       </div>
       <div nz-col nzSpan="12">
-        <g2-mini-bar
-          *ngIf="webSite"
-          height="35"
-          color="#fff"
-          borderWidth="3"
-          [padding]="[5, 30]"
-          [data]="webSite"
-          tooltipType="mini"
-        ></g2-mini-bar>
+        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[5, 30]" [data]="webSite"
+          tooltipType="mini"></g2-mini-bar>
       </div>
     </div>
   </div>
@@ -31,15 +24,8 @@
         <p class="text-nowrap mb0">评论总数</p>
       </div>
       <div nz-col nzSpan="12">
-        <g2-mini-bar
-          *ngIf="webSite"
-          height="35"
-          color="#fff"
-          borderWidth="3"
-          [padding]="[5, 30]"
-          [data]="webSite"
-          tooltipType="mini"
-        ></g2-mini-bar>
+        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[5, 30]" [data]="webSite"
+          tooltipType="mini"></g2-mini-bar>
       </div>
     </div>
   </div>
@@ -50,15 +36,8 @@
         <p class="text-nowrap mb0">点赞总数</p>
       </div>
       <div nz-col nzSpan="12">
-        <g2-mini-bar
-          *ngIf="webSite"
-          height="35"
-          color="#fff"
-          borderWidth="3"
-          [padding]="[5, 30]"
-          [data]="webSite"
-          tooltipType="mini"
-        ></g2-mini-bar>
+        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[5, 30]" [data]="webSite"
+          tooltipType="mini"></g2-mini-bar>
       </div>
     </div>
   </div>
@@ -69,15 +48,8 @@
         <p class="text-nowrap mb0">用户总数</p>
       </div>
       <div nz-col nzSpan="12">
-        <g2-mini-bar
-          *ngIf="webSite"
-          height="35"
-          color="#fff"
-          borderWidth="3"
-          [padding]="[5, 30]"
-          [data]="webSite"
-          tooltipType="mini"
-        ></g2-mini-bar>
+        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[5, 30]" [data]="webSite"
+          tooltipType="mini"></g2-mini-bar>
       </div>
     </div>
   </div>
@@ -89,14 +61,8 @@
         最新发表的
         <small class="text-sm font-weight-normal">(记录你的生活)</small>
       </ng-template>
-      <div
-        nz-row
-        [nzType]="'flex'"
-        [nzJustify]="'center'"
-        [nzAlign]="'middle'"
-        class="py-sm bg-grey-lighter-h point"
-        *ngFor="let item of todoData"
-      >
+      <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm bg-grey-lighter-h point"
+        *ngFor="let item of todoData">
         <div nz-col [nzSpan]="4" class="text-center">
           <nz-avatar [nzSrc]="'./assets/tmp/img/' + item.avatar + '.png'"></nz-avatar>
         </div>
