@@ -27,7 +27,7 @@ export class ProAccountCenterComponent implements OnInit, OnDestroy {
   tabs: any[] = [
     {
       key: 'articles',
-      tab: '文章',
+      tab: '文字',
     },
     {
       key: 'applications',
