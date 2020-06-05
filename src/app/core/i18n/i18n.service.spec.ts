@@ -15,16 +15,16 @@ describe('Service: I18n', () => {
     },
   };
   const MockNzI18nService = {
-    setLocale: () => {},
-    setDateLocale: () => {},
+    setLocale: () => { },
+    setDateLocale: () => { },
   };
   const MockDelonLocaleService = {
-    setLocale: () => {},
+    setLocale: () => { },
   };
   const MockTranslateService = {
     getBrowserLang: jasmine.createSpy('getBrowserLang'),
-    addLangs: () => {},
-    setLocale: () => {},
+    addLangs: () => { },
+    setLocale: () => { },
     getDefaultLang: () => '',
     use: (lang: string) => of(lang),
     instant: jasmine.createSpy('instant'),

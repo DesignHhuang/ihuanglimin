@@ -78,7 +78,6 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "ihuangxiaomin:build",
-            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
