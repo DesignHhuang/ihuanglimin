@@ -14,7 +14,7 @@ export class ArticleService {
   }
 
   // 获取所有的文章   
-  allArticles(data): Observable<Article[]> {
+  allArticles(data) {
     const uri = `${this.config.getConfig('uri')}/${this.domain}/allArticles`;
     return this.http.post(uri, data).pipe(map(res => {
       if (res['code'] === 1) {
@@ -38,7 +38,7 @@ export class ArticleService {
   }
 
   //获取本人的文章
-  allArticlesByUser(data): Observable<Article[]> {
+  allArticlesByUser(data) {
     const uri = `${this.config.getConfig('uri')}/${this.domain}/allArticlesByUser`;
     return this.http.post(uri, data).pipe(map(res => {
       if (res['code'] === 1) {

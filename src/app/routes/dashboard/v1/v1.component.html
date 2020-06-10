@@ -61,16 +61,32 @@
         最新发表的
         <small class="text-sm font-weight-normal">(记录你的生活)</small>
       </ng-template>
-      <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm bg-grey-lighter-h point"
-        *ngFor="let item of todoData">
-        <div nz-col [nzSpan]="4" class="text-center">
-          <nz-avatar [nzSrc]="'./assets/tmp/img/' + item.avatar + '.png'"></nz-avatar>
+      <nz-list class="demo-loadmore-list">
+        <nz-list-item *ngFor="let item of data" style="padding-left: 24px;padding-right: 24px;">
+          <ng-container>
+            <nz-list-item-meta [nzAvatar]="config.getConfig('fastdfsuri') + item.creator.avatar"
+              [nzDescription]="item.content">
+              <nz-list-item-meta-title>
+                发布者：<a href="https://ng.ant.design">{{ item.creator.nickname }}</a>
+              </nz-list-item-meta-title>
+            </nz-list-item-meta>
+            {{ item.createdAt | _date }}
+            <ul nz-list-item-actions>
+              <nz-list-item-action><a (click)="edit(item)"><i nz-icon nzType="like"
+                    class="mr-sm"></i></a>{{ item.likesum }}
+              </nz-list-item-action>
+              <nz-list-item-action><a (click)="edit(item)"><i nz-icon nzType="message"
+                    class="mr-sm"></i></a>{{ item.commentsum }}
+              </nz-list-item-action>
+            </ul>
+          </ng-container>
+        </nz-list-item>
+        <div class="loadmore">
+          <nz-pagination [(nzPageIndex)]="pageIndex" [(nzTotal)]="total" nzShowSizeChanger [(nzPageSize)]="pageSiza"
+            (nzPageIndexChange)="getData()" (nzPageSizeChange)="getData()" nzShowQuickJumper>
+          </nz-pagination>
         </div>
-        <div nz-col [nzSpan]="20">
-          <strong>{{ item.name }}</strong>
-          <p class="mb0">{{ item.content }}</p>
-        </div>
-      </div>
+      </nz-list>
     </nz-card>
   </div>
 </div>

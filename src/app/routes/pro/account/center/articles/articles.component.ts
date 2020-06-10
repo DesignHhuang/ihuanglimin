@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { _HttpClient } from '@delon/theme';
 import { ArticleService } from '@services';
 import { StartupService } from '@core'
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -29,14 +28,18 @@ export class ProAccountCenterArticlesComponent implements OnInit {
   loadingMore = false;
   form: FormGroup;
   submitting = false;
+  pageIndex = 1;
+  pageSiza = 10;
+  total = 0;
 
   constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef, private articleService: ArticleService, private config: StartupService, private msg: NzMessageService) {
-    this.getData()
+
   }
 
   getData = () => {
-    this.articleService.allArticlesByUser({ index: 1 }).subscribe(res => {
-      this.list = res;
+    this.articleService.allArticlesByUser({ "pageIndex": this.pageIndex - 1, "pageSize": this.pageSiza }).subscribe(res => {
+      this.list = res.content;
+      this.total = res.totalElements;
       this.cdr.detectChanges();
     })
   }
@@ -45,6 +48,7 @@ export class ProAccountCenterArticlesComponent implements OnInit {
     this.form = this.fb.group({
       content: [null, [Validators.required]],
     });
+    this.getData();
   }
 
   edit(item: any): void {

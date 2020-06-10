@@ -29,7 +29,9 @@
       </ul>
     </ng-container>
   </nz-list-item>
-  <div class="loadmore" nz-list-load-more>
-    <button nz-button *ngIf="!loadingMore" (click)="onLoadMore()">加载更多</button>
+  <div class="loadmore">
+    <nz-pagination [(nzPageIndex)]="pageIndex" [(nzTotal)]="total" nzShowSizeChanger [(nzPageSize)]="pageSiza"
+      (nzPageIndexChange)="getData()" (nzPageSizeChange)="getData()" nzShowQuickJumper>
+    </nz-pagination>
   </div>
 </nz-list>

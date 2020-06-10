@@ -1,46 +1,48 @@
 <div nz-row nzGutter="24" class="py-lg">
   <div nz-col nzMd="24" nzLg="7">
-    <nz-card [nzBordered]="false" class="mb-lg" [nzLoading]="!user">
-      <ng-container *ngIf="user">
-        <div class="avatarHolder">
-          <img [src]="config.getConfig('fastdfsuri') + user.avatar" />
-          <div class="name">{{ user.nickname ? user.nickname : '匿名用户' }}</div>
-          <div>{{ user.signature }}</div>
-        </div>
-        <div class="detail">
-          <p><i class="title"></i>{{ user.title }}</p>
-          <p><i class="group"></i>{{ user.org_group }}</p>
-          <p>
-            <i class="address"></i>
-            {{ user.address }}
-          </p>
-        </div>
-        <nz-divider nzDashed></nz-divider>
-        <div class="tags">
-          <div class="tagsTitle">标签</div>
-          <nz-tag *ngFor="let t of user.tagList">{{ t.tagname }}</nz-tag>
-          <nz-tag *ngIf="!taging" (click)="tagShowIpt()" class="ant-tag__plus">
-            <i nz-icon nzType="plus"></i>
-          </nz-tag>
-          <input *ngIf="taging" #tagInput nz-input [(ngModel)]="tagValue" (blur)="tagBlur()"
-            (keydown)="tagEnter($event)" nzSize="small" type="text" style="width: 78px;" />
-        </div>
-        <nz-divider nzDashed></nz-divider>
-        <div class="team">
-          <div class="teamTitle">团队</div>
-          <nz-spin [nzSpinning]="!user.teamList">
-            <div nz-row nzGutter="36">
-              <div nz-col *ngFor="let t of user.teamList" nzLg="24" nzXl="12">
-                <a [href]="t.href" class="text-truncate" target="_blank">
-                  <nz-avatar [nzSrc]="config.getConfig('fastdfsuri') + t.logo" nzSize="small"></nz-avatar>
-                  {{ t.member }}
-                </a>
+    <nz-affix [nzOffsetTop]="88">
+      <nz-card [nzBordered]="false" class="mb-lg" [nzLoading]="!user">
+        <ng-container *ngIf="user">
+          <div class="avatarHolder">
+            <img [src]="config.getConfig('fastdfsuri') + user.avatar" />
+            <div class="name">{{ user.nickname ? user.nickname : '匿名用户' }}</div>
+            <div>{{ user.signature }}</div>
+          </div>
+          <div class="detail">
+            <p><i class="title"></i>{{ user.title }}</p>
+            <p><i class="group"></i>{{ user.org_group }}</p>
+            <p>
+              <i class="address"></i>
+              {{ user.address }}
+            </p>
+          </div>
+          <nz-divider nzDashed></nz-divider>
+          <div class="tags">
+            <div class="tagsTitle">标签</div>
+            <nz-tag *ngFor="let t of user.tagList">{{ t.tagname }}</nz-tag>
+            <nz-tag *ngIf="!taging" (click)="tagShowIpt()" class="ant-tag__plus">
+              <i nz-icon nzType="plus"></i>
+            </nz-tag>
+            <input *ngIf="taging" #tagInput nz-input [(ngModel)]="tagValue" (blur)="tagBlur()"
+              (keydown)="tagEnter($event)" nzSize="small" type="text" style="width: 78px;" />
+          </div>
+          <nz-divider nzDashed></nz-divider>
+          <div class="team">
+            <div class="teamTitle">团队</div>
+            <nz-spin [nzSpinning]="!user.teamList">
+              <div nz-row nzGutter="36">
+                <div nz-col *ngFor="let t of user.teamList" nzLg="24" nzXl="12">
+                  <a [href]="t.href" class="text-truncate" target="_blank">
+                    <nz-avatar [nzSrc]="config.getConfig('fastdfsuri') + t.logo" nzSize="small"></nz-avatar>
+                    {{ t.member }}
+                  </a>
+                </div>
               </div>
-            </div>
-          </nz-spin>
-        </div>
-      </ng-container>
-    </nz-card>
+            </nz-spin>
+          </div>
+        </ng-container>
+      </nz-card>
+    </nz-affix>
   </div>
   <div nz-col nzMd="24" nzLg="17">
     <nz-card class="tabsCard" [nzBordered]="false" [nzTitle]="tagTitleTpl">
