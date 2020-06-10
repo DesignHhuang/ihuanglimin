@@ -5,10 +5,7 @@ import { environment } from '@env/environment';
 import { LayoutDefaultComponent } from '../layout/default/default.component';
 import { LayoutPassportComponent } from '../layout/passport/passport.component';
 import { CallbackComponent } from './callback/callback.component';
-import { DashboardAnalysisComponent } from './dashboard/analysis/analysis.component';
-import { DashboardMonitorComponent } from './dashboard/monitor/monitor.component';
 import { DashboardV1Component } from './dashboard/v1/v1.component';
-import { DashboardWorkplaceComponent } from './dashboard/workplace/workplace.component';
 import { UserLockComponent } from './passport/lock/lock.component';
 import { UserLoginComponent } from './passport/login/login.component';
 import { UserRegisterResultComponent } from './passport/register-result/register-result.component';
@@ -24,9 +21,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard/v1', pathMatch: 'full' },
       { path: 'dashboard', redirectTo: 'dashboard/v1', pathMatch: 'full' },
       { path: 'dashboard/v1', component: DashboardV1Component },
-      { path: 'dashboard/analysis', component: DashboardAnalysisComponent },
-      { path: 'dashboard/monitor', component: DashboardMonitorComponent },
-      { path: 'dashboard/workplace', component: DashboardWorkplaceComponent },
       { path: 'extras', loadChildren: () => import('./extras/extras.module').then(m => m.ExtrasModule) },
       { path: 'pro', loadChildren: () => import('./pro/pro.module').then(m => m.ProModule) },
       { path: 'exception', loadChildren: () => import('./exception/exception.module').then(m => m.ExceptionModule) },

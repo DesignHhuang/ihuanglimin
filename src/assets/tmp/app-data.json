@@ -22,24 +22,9 @@
           "icon": "anticon-dashboard",
           "children": [
             {
-              "text": "仪表盘V1",
+              "text": "首页",
               "link": "/dashboard/v1",
-              "i18n": "menu.dashboard.v1"
-            },
-            {
-              "text": "分析页",
-              "link": "/dashboard/analysis",
-              "i18n": "menu.dashboard.analysis"
-            },
-            {
-              "text": "监控页",
-              "link": "/dashboard/monitor",
-              "i18n": "menu.dashboard.monitor"
-            },
-            {
-              "text": "工作台",
-              "link": "/dashboard/workplace",
-              "i18n": "menu.dashboard.workplace"
+              "i18n": "首页"
             }
           ]
         }
@@ -50,101 +35,6 @@
       "group": true,
       "hideInBreadcrumb": true,
       "children": [
-        {
-          "text": "发表页",
-          "link": "/pro/form",
-          "icon": "anticon-edit",
-          "children": [
-            {
-              "text": "写东西",
-              "link": "/pro/form/basic-form"
-            },
-            {
-              "text": "Step Form",
-              "link": "/pro/form/step-form",
-              "i18n": "menu.form.stepform"
-            },
-            {
-              "text": "Advanced Form",
-              "link": "/pro/form/advanced-form",
-              "i18n": "menu.form.advancedform"
-            }
-          ]
-        },
-        {
-          "text": "List",
-          "i18n": "menu.list",
-          "icon": "anticon-appstore",
-          "children": [
-            {
-              "text": "Table List",
-              "link": "/pro/list/table-list",
-              "i18n": "menu.list.searchtable"
-            },
-            {
-              "text": "Basic List",
-              "link": "/pro/list/basic-list",
-              "i18n": "menu.list.basiclist"
-            },
-            {
-              "text": "Card List",
-              "link": "/pro/list/card-list",
-              "i18n": "menu.list.cardlist"
-            },
-            {
-              "text": "Search List",
-              "i18n": "menu.list.searchlist",
-              "children": [
-                {
-                  "link": "/pro/list/articles",
-                  "i18n": "menu.list.searchlist.articles"
-                },
-                {
-                  "link": "/pro/list/projects",
-                  "i18n": "menu.list.searchlist.projects"
-                },
-                {
-                  "link": "/pro/list/applications",
-                  "i18n": "menu.list.searchlist.applications"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "text": "Profile",
-          "i18n": "menu.profile",
-          "icon": "anticon-profile",
-          "children": [
-            {
-              "text": "Basic",
-              "link": "/pro/profile/basic",
-              "i18n": "menu.profile.basic"
-            },
-            {
-              "text": "Advanced",
-              "link": "/pro/profile/advanced",
-              "i18n": "menu.profile.advanced"
-            }
-          ]
-        },
-        {
-          "text": "Result",
-          "i18n": "menu.result",
-          "icon": "anticon-check-circle",
-          "children": [
-            {
-              "text": "Success",
-              "link": "/pro/result/success",
-              "i18n": "menu.result.success"
-            },
-            {
-              "text": "Fail",
-              "link": "/pro/result/fail",
-              "i18n": "menu.result.fail"
-            }
-          ]
-        },
         {
           "text": "Exception",
           "i18n": "menu.exception",
