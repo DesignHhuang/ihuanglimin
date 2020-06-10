@@ -4,7 +4,6 @@ import { SimpleGuard } from '@delon/auth';
 import { environment } from '@env/environment';
 import { LayoutDefaultComponent } from '../layout/default/default.component';
 import { LayoutPassportComponent } from '../layout/passport/passport.component';
-import { CallbackComponent } from './callback/callback.component';
 import { DashboardV1Component } from './dashboard/v1/v1.component';
 import { UserLockComponent } from './passport/lock/lock.component';
 import { UserLoginComponent } from './passport/login/login.component';
@@ -52,7 +51,6 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'callback/:type', component: CallbackComponent },
   { path: '**', redirectTo: 'exception/404' },
 ];
 

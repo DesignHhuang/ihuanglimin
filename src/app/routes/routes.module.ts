@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '@shared';
-import { CallbackComponent } from './callback/callback.component';
 import { DashboardV1Component } from './dashboard/v1/v1.component';
 import { UserLockComponent } from './passport/lock/lock.component';
 import { UserLoginComponent } from './passport/login/login.component';
@@ -17,7 +16,6 @@ const COMPONENTS = [
   UserRegisterResultComponent,
   // single pages
   UserLockComponent,
-  CallbackComponent,
 ];
 const COMPONENTS_NOROUNT = [];
 
