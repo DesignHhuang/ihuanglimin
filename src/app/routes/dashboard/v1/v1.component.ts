@@ -41,8 +41,6 @@ export class DashboardV1Component implements OnInit {
     this.articleService.allArticles({ "pageIndex": this.pageIndex - 1, "pageSize": this.pageSiza }).subscribe(res => {
       this.data = res.content;
       this.total = res.totalElements;
-      console.log(this.data)
-      console.log(this.total)
       this.cdr.detectChanges();
     })
   }
