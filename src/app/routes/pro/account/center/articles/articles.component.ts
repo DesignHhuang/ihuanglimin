@@ -55,6 +55,18 @@ export class ProAccountCenterArticlesComponent implements OnInit {
     this.msg.success("触发事件");
   }
 
+  dolike = (type, id) => {
+    this.articleService.dolike({ type: type, id: id }).subscribe(res => {
+      this.list.map(article => {
+        if (article.id == res.id) {
+          article.likesum = res.likesum;
+          return article
+        }
+      })
+      this.cdr.detectChanges();
+    })
+  }
+
   submit = ($event, value) => {
     $event.preventDefault();
     for (const key in this.form.controls) {

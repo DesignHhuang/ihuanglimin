@@ -47,6 +47,16 @@ export class ArticleService {
     }));
   }
 
+  //点赞，取消点赞
+  dolike(data) {
+    const uri = `${this.config.getConfig('uri')}/${this.domain}/dolike`;
+    return this.http.post(uri, data).pipe(map(res => {
+      if (res['code'] === 1) {
+        return res['data'];
+      }
+    }));
+  }
+
   //删除
   delete(data): Observable<Article> {
     const uri = `${this.config.getConfig('uri')}/${this.domain}/delete`;

@@ -44,4 +44,16 @@ export class DashboardV1Component implements OnInit {
       this.cdr.detectChanges();
     })
   }
+
+  dolike = (type, id) => {
+    this.articleService.dolike({ type: type, id: id }).subscribe(res => {
+      this.data.map(article => {
+        if (article.id == res.id) {
+          article.likesum = res.likesum;
+          return article
+        }
+      })
+      this.cdr.detectChanges();
+    })
+  }
 }
