@@ -37,6 +37,19 @@ export class ArticleService {
     }));
   }
 
+  //获取本人对每篇文章的点赞情况
+  likestate(data): Observable<any[]> {
+    const uri = `${this.config.getConfig('uri')}/${this.domain}/likestate`;
+    return this.http.post(uri, data).pipe(map(res => {
+      if (res['code'] === 1) {
+        return res['data'];
+      } else {
+        this.msg.success("获取点赞情况失败")
+        return data
+      }
+    }));
+  }
+
   //获取本人的文章
   allArticlesByUser(data) {
     const uri = `${this.config.getConfig('uri')}/${this.domain}/allArticlesByUser`;

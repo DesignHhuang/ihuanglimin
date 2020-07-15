@@ -20,10 +20,10 @@
       </nz-list-item-meta>
       {{ item.createdAt | _date }}
       <ul nz-list-item-actions>
-        <nz-list-item-action><a (click)="dolike('文章点赞',item.id)"><i nz-icon nzType="like"
-              class="mr-sm"></i></a>{{ item.likesum }}
+        <nz-list-item-action><a (click)="dolike('文章点赞',item.id)"><i nz-icon nzType="like" class="mr-sm"
+              [ngStyle]="{'color': item.islike ? 'red' : 'black'}"></i></a>{{ item.likesum }}
         </nz-list-item-action>
-        <nz-list-item-action><a (click)="edit(item.id)"><i nz-icon nzType="message"
+        <nz-list-item-action><a (click)="showModal(item.creator.nickname,item.id)"><i nz-icon nzType="message"
               class="mr-sm"></i></a>{{ item.commentsum }}
         </nz-list-item-action>
         <nz-list-item-action><a (click)="delete(item)">删除</a></nz-list-item-action>
@@ -36,3 +36,7 @@
     </nz-pagination>
   </div>
 </nz-list>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="评论" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <textarea nz-input [(ngModel)]="commentcontent" [nzAutosize]="{ minRows: 4 }"
+    [placeholder]="'@' + modelname"></textarea>
+</nz-modal>
