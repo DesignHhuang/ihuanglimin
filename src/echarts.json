@@ -1,0 +1,516 @@
+// 电池电芯的options 数据
+{
+    title: {
+      text: 'Stacked Line'
+    },
+    tooltip: {
+      trigger: 'axis',
+      formatter: function (params) {
+        console.log(params);
+        return 'nihao';
+      }
+    },
+    legend: {
+      data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true,
+      height: 100
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    xAxis: {
+      type: 'time',
+      //show: false,
+      boundaryGap: false
+    },
+    yAxis: {
+      type: 'value'
+      //show: false
+    },
+    series: [
+      {
+        name: 'battery1cell1',
+        symbol: 'none',
+        type: 'line',
+        data: [
+          [
+            1728489600000,
+            0,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728493200000,
+            0,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728496800000,
+            0,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          null,
+          [
+            1728511200000,
+            0,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728514800000,
+            0,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728518400000,
+            0,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          null,
+          [
+            1728525600000,
+            0,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          null,
+          [
+            1728532800000,
+            0,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ]
+        ],
+        lineStyle: {
+          width: 100 / 5,
+          cap: 'round'
+        }
+      },
+      {
+        name: 'battery1cell2',
+        symbol: 'none',
+        type: 'line',
+        data: [
+          [
+            1728489600000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728493200000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728496800000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          null,
+          [
+            1728504000000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728507600000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          null,
+          [
+            1728514800000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728518400000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728522000000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          null,
+          [
+            1728529200000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728532800000,
+            1,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ]
+        ],
+        lineStyle: {
+          width: 100 / 5,
+          cap: 'round'
+        }
+      },
+      {
+        name: 'battery1cell3',
+        symbol: 'none',
+        type: 'line',
+        data: [
+          
+          [
+            1728514800000,
+            2,
+            {
+              cellNo: 'Cell #3',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728518400000,
+            2,
+            {
+              cellNo: 'Cell #3',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728522000000,
+            2,
+            {
+              cellNo: 'Cell #3',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728525600000,
+            2,
+            {
+              cellNo: 'Cell #3',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728529200000,
+            2,
+            {
+              cellNo: 'Cell #3',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728532800000,
+            2,
+            {
+              cellNo: 'Cell #3',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ]
+        ],
+        lineStyle: {
+          width: 100 / 5,
+          cap: 'round'
+        }
+      },
+      {
+        name: 'battery2cell1',
+        symbol: 'none',
+        type: 'line',
+        data: [
+          [
+            1728489600000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728493200000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728496800000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728500400000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728504000000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728507600000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728511200000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728514800000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728518400000,
+            3,
+            {
+              cellNo: 'Cell #1',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ]
+        ],
+        lineStyle: {
+          width: 100 / 5,
+          cap: 'round'
+        }
+      },
+      {
+        name: 'battery2cell2',
+        symbol: 'none',
+        type: 'line',
+        data: [
+          [
+            1728489600000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728493200000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728496800000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728500400000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728504000000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728507600000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728511200000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728514800000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728518400000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728522000000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728525600000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728529200000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ],
+          [
+            1728532800000,
+            4,
+            {
+              cellNo: 'Cell #2',
+              startTime: 1728489600000,
+              endTime: 1728493200000
+            }
+          ]
+        ],
+        lineStyle: {
+          width: 100 / 5,
+          cap: 'round'
+        }
+      }
+    ]
+  };
+  
